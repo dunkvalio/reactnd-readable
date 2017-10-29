@@ -1,0 +1,9 @@
+.category-list {
+  display: flex;
+
+  flex-direction: horizontal;
+}
+
+.category-list-item {
+  padding: 4px;
+}

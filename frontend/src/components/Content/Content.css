@@ -1,0 +1,7 @@
+.App-content {
+  background-color: #a4a5a5e3;
+  display: flex;
+  flex: 1;
+  flex-direction: vertical;
+  justify-content: center;
+}
