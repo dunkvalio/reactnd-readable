@@ -5,8 +5,18 @@ const makeCall = (url) => fetch(
   { headers: { 'Authorization': 'whatever-you-want' } }
 );
 
-export function fetchCategories () {
+export function getCategories () {
   return makeCall('/categories')
     .then((res) => res.json())
     .then(result => result.categories);
+}
+
+export function getPosts () {
+  return makeCall('/posts')
+    .then((res) => res.json());
+}
+
+export function getPostsByCategory(category) {
+  return makeCall(`/${category}/posts`)
+    .then(res => res.json());
 }

@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 const List = ({ data, getKey, render, className }) => (
   <ul className={className}>
-    {data.map(item => (<li key={getKey(item)}>{render(item)}</li>))}
+    {data.map(item => (
+      <li key={getKey(item)}>
+        {render(item, data.indexOf(item))}
+      </li>
+    ))}
   </ul>
 );
 

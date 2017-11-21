@@ -1,0 +1,25 @@
+.post-card {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;
+  padding: 12px;
+}
+
+.post-rank {
+  margin: 0px 3px;
+  color: grey;
+}
+
+.post-summary {
+  text-align: left;
+}
+
+.post-title {
+  margin: 0px;
+}
+
+.post-description {
+  color: grey;
+  margin: 0px;
+}
