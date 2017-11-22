@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const List = ({ data, getKey, render, className }) => (
+const List = ({ data, getKey, className, children }) => (
   <ul className={className}>
     {data.map(item => (
       <li key={getKey(item)}>
-        {render(item, data.indexOf(item))}
+        {children(item, data.indexOf(item))}
       </li>
     ))}
   </ul>

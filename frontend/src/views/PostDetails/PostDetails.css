@@ -1,0 +1,34 @@
+.post-body {
+  align-items: stretch;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.post-details {
+  background-color: #4bacb8;
+  padding: 3px;
+  text-align: right;
+}
+
+.post-details-text {
+  color: #fafafa;
+  margin: 0px;
+}
+
+.post-author {
+  color: #ffd180;
+}
+
+.post-body-text-container {
+  background-color: #eeeeee;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-body-text {
+  color: #4bacb8;
+}

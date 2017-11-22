@@ -4,6 +4,7 @@
   align-items: flex-start;
   margin-bottom: 5px;
   padding: 12px;
+  cursor: pointer;
 }
 
 .post-card:active {
@@ -11,8 +12,8 @@
 }
 
 .post-rank {
+  color: #4bacb8;
   margin: 0px 3px;
-  color: grey;
 }
 
 .post-summary {
@@ -24,6 +25,6 @@
 }
 
 .post-description {
-  color: grey;
+  color: #4bacb8;
   margin: 0px;
 }

@@ -1,9 +1,12 @@
 import React from 'react';
 import './Title.css';
 
-const Title = ({ text }) => (
+const Title = ({ small, ...props}) => (
   <div className='title-container'>
-    <h2>{text}</h2>
+    {small
+      ? <h4>{props.children}</h4>
+      : <h2>{props.children}</h2>
+    }
   </div>
 );
 

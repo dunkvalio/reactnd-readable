@@ -16,6 +16,10 @@ class PostDetailsContainer extends Component {
   }
 }
 
+PostDetailsContainer.defaultProps = {
+  post: {},
+};
+
 const mapStateToProps = ({ postDetails }, ownProps) => {
   return { post: postDetails.post }
 }

@@ -22,11 +22,14 @@ Category.defaultProps = {
 
 const CategoryList = ({ data }) => (
   <List
-    className='category-list'
+    className="category-list"
     data={data}
     getKey={item => item.name}
-    render={item => (<Category item={item} className='category-list-item'/>)}
-  />
+  >
+    {item => (
+      <Category item={item} className="category-list-item" />
+    )}
+  </List>
 );
 
 CategoryList.propTypes = {
