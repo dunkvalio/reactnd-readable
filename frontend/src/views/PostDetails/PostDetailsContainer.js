@@ -11,7 +11,10 @@ class PostDetailsContainer extends Component {
 
   render() {
     return (
-      <PostDetails post={this.props.post}/>
+      <PostDetails
+        post={this.props.post}
+        onGoBack={() => this.props.history.goBack()}
+      />
     );
   }
 }

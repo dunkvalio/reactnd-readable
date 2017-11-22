@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import moment from 'moment';
+import CommentsIcon from 'react-icons/lib/fa/comments';
 import './Post.css';
 
 const postDescription = (post) => {
@@ -11,9 +12,7 @@ const postDescription = (post) => {
   desc += ` by ${post.author}`;
   desc += ` ${moment(new Date(post.timestamp)).fromNow()}`;
   desc += ' | ';
-  desc += post.commentCount === 1
-    ? `${post.commentCount} comment`
-    : `${post.commentCount} comments`;
+  desc += post.commentCount;
   return desc;
 };
 
@@ -22,7 +21,9 @@ const Post = ({ item, pos, onClick }) => (
     <h4 className='post-rank'>{pos}. </h4>
     <div className='post-summary'>
       <h4 className='post-title'>{item.title}</h4>
-      <h6 className='post-description'>{postDescription(item)}</h6>
+      <h6 className='post-description'>
+        {postDescription(item)} <CommentsIcon size={12} color='#4bacb8'/>
+      </h6>
     </div>
   </Link>
 );

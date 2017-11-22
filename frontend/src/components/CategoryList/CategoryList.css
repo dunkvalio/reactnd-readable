@@ -4,5 +4,7 @@
 }
 
 .category-list-item {
+  color: #01579b;
+  font-weight: bold;
   padding: 4px;
 }

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import EditIcon from 'react-icons/lib/fa/pencil-square';
 import './PostDetails.css';
 
 import Header from '../../components/Header';
-import Center from '../../components/Header/Center';
+import BackButton from '../../components/BackButton';
 import Content from '../../components/Content';
 import Title from '../../components/Title';
 
@@ -28,12 +29,12 @@ PostBody.propTypes = {
   timestamp: PropTypes.number.isRequired,
 };
 
-const PostDetails = ({ post }) => (
+const PostDetails = ({ post, onGoBack }) => (
   <div>
     <Header>
-      <Center>
-        <Title small>{post.title}</Title>
-      </Center>
+      <BackButton onClick={onGoBack} />
+      <Title small>{post.title}</Title>
+      <EditIcon size={50} color="#01579b" />
     </Header>
     <Content>
       <PostBody

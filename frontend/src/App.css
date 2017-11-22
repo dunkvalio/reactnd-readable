@@ -11,20 +11,12 @@
   padding: 12px;
   background-color: #ffd180;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* .App-header-center {
-  align-self: center;
-} */
-
-.App-header-left {
-  align-self: flex-start;
-}
-
-.App-header-right {
-  align-self: flex-end;
+.header-single {
+  justify-content: center;
 }
 
 .App-title {

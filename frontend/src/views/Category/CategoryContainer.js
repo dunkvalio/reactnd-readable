@@ -14,6 +14,7 @@ class CategoryContainer extends Component {
       <Category
         category={this.props.match.params.name}
         posts={this.props.posts}
+        onGoBack={() => this.props.history.goBack()}
       />
     );
   }
