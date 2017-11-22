@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 import moment from 'moment';
 import './Post.css';
 
@@ -16,14 +17,14 @@ const postDescription = (post) => {
   return desc;
 };
 
-const Post = ({ item, pos }) => (
-  <div className='post-card'>
+const Post = ({ item, pos, onClick }) => (
+  <Link to={`/posts/${item.id}`} className='post-card'>
     <h4 className='post-rank'>{pos}. </h4>
     <div className='post-summary'>
       <h4 className='post-title'>{item.title}</h4>
       <h6 className='post-description'>{postDescription(item)}</h6>
     </div>
-  </div>
+  </Link>
 );
 
 Post.propTypes = {

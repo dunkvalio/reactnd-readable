@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import {
   FETCH_CATEGORIES_SUCCESS,
   FETCH_POSTS_SUCCESS,
-  FETCH_POSTS_ERROR,
+  FETCH_POST_DETAILS_SUCCESS,
 } from '../actions';
 
 const categories = (state = {}, action) => {
@@ -18,13 +18,21 @@ const posts = (state = {}, action) => {
   switch (action.type) {
     case FETCH_POSTS_SUCCESS:
       return { posts: action.posts };
-    case FETCH_POSTS_ERROR:
+    default:
       return state;
+  }
+};
+
+
+const postDetails = (state = {}, action) => {
+  switch (action.type) {
+    case FETCH_POST_DETAILS_SUCCESS:
+      return { post: action.data };
     default:
       return state;
   }
 };
 
 export default combineReducers({
-  categories, posts
+  categories, posts, postDetails,
 });

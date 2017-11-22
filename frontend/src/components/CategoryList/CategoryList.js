@@ -5,7 +5,7 @@ import List from '../List';
 import './CategoryList.css';
 
 const Category = ({ item, className }) => (
-  <Link to={`/categories/${item.path}/posts`}>
+  <Link to={`/category/${item.path}/posts`}>
     <div className={className}>{item.name}</div>
   </Link>
 );

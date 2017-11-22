@@ -6,6 +6,10 @@
   padding: 12px;
 }
 
+.post-card:active {
+  opacity: 30;
+}
+
 .post-rank {
   margin: 0px 3px;
   color: grey;
