@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddIcon from 'react-icons/lib/fa/plus';
+
 import Header from '../../components/Header';
 import CategoryList from '../../components/CategoryList';
 import Content from '../../components/Content';
@@ -22,7 +24,9 @@ const Main = ({ categories, posts }) => (
           <Post pos={++index} item={item} />
         )}
       </List>
-      <FAB to='/posts/edit' />
+      <FAB to='/posts/edit'>
+        <AddIcon size={20} color='#ffff'/>
+      </FAB>
     </Content>
   </div>
 );

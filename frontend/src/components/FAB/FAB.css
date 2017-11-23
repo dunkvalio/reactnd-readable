@@ -6,10 +6,13 @@
   height: 40px;
   border-radius: 50%;
   background: #4bacb8;
-  background-image: url('../../icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

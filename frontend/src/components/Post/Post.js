@@ -17,7 +17,7 @@ const postDescription = (post) => {
 };
 
 const Post = ({ item, pos, onClick }) => (
-  <Link to={`/posts/${item.id}`} className='post-card'>
+  <Link to={`/posts/${item.id}`} className='post-card card-container padded'>
     <h4 className='post-rank'>{pos}. </h4>
     <div className='post-summary'>
       <h4 className='post-title'>{item.title}</h4>

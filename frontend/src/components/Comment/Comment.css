@@ -1,0 +1,25 @@
+.comment-container {
+  align-items: stretch;
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.comment-header-text {
+  margin: 0px;
+  padding: 3px 6px;
+  color: #01579b;
+}
+
+.comment-body {
+  margin: 3px;
+  background-color: #ffffb1;
+  color: #01579b;
+}

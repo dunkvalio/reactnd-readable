@@ -3,7 +3,7 @@ import ArrowLeftIcon from 'react-icons/lib/fa/arrow-left';
 
 const BackButton = ({ onClick }) => (
   <div onClick={onClick}>
-    <ArrowLeftIcon size={30} color="#01579b" />
+    <ArrowLeftIcon size={25} color="#01579b" />
   </div>
 );
 

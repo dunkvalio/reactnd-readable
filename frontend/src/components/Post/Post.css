@@ -1,14 +1,8 @@
 .post-card {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 5px;
-  padding: 12px;
+  background-color: #ffff;
   cursor: pointer;
-}
-
-.post-card:active {
-  opacity: 30;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .post-rank {

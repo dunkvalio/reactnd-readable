@@ -21,28 +21,27 @@ const getTimestamp = () => Date.now();
 
 export function getCategories () {
   return api.get('/categories')
-    .then(res => res.json())
+    .then(res => res.data)
     .then(result => result.categories);
 }
 
 export function getPosts () {
   return api.get('/posts')
-    .then(res => res.json());
+    .then(res => res.data);
 }
 
 export function getPostsByCategory(category) {
   return api.get(`/${category}/posts`)
-    .then(res => res.json());
+    .then(res => res.data);
 }
 
-
 export function getPostById (id) {
-  return api.get(`/posts/${id}`).then(res => res.json());
+  return api.get(`/posts/${id}`).then(res => res.data);
 }
 
 export function getCommentsForPost(id) {
   return api.get(`/posts/${id}/comments`)
-    .then(res => res.json());
+    .then(res => res.data);
 }
 
 export function postPost(title, author, body, category) {
@@ -52,18 +51,18 @@ export function postPost(title, author, body, category) {
     body,
     author,
     category,
-  }).then(res => res.json());
+  }).then(res => res.data);
 }
 
 export function postPostVote(id, vote) {
   return api.post(
       `/posts/${id}`,
       { option: (vote > 0) ? 'upVote' : 'downVote' }
-    ).then(res => res.json());
+    ).then(res => res.data);
 }
 
 export function putPost(id, title, body) {
-  return api.put(`/posts/${id}`, { title, body }).then(res => res.json());
+  return api.put(`/posts/${id}`, { title, body }).then(res => res.data);
 }
 
 export function deletePost(id, title, body) {
@@ -71,18 +70,21 @@ export function deletePost(id, title, body) {
 }
 
 export function postComment(parentId, author, body) {
+  console.log('====================================');
+  console.log("API", parentId, author, body);
+  console.log('====================================');
   return api.post('/comments', {
     id: guid(),
     timestamp: getTimestamp(),
     body,
     author,
     parentId,
-  }).then(res => res.json());
+  }).then(res => res.data);
 }
 
 export function postCommentVote(id, upvote) {
   return api.post(
     `/comments/${id}`,
     { option: upvote ? 'upVote' : 'downVote' }
-  ).then(res => res.json());
+  ).then(res => res.data);
 }

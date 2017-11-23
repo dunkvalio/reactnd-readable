@@ -1,5 +1,6 @@
-.post-body {
+.post-details-container {
   align-items: stretch;
+  border: 1px solid #4bacb8;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   display: flex;
   flex-direction: column;
@@ -7,9 +8,18 @@
 }
 
 .post-details {
+  align-items: center;
   background-color: #4bacb8;
-  padding: 3px;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 6px;
+}
+
+.post-details-add-comment {
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
 }
 
 .post-details-text {
@@ -21,7 +31,7 @@
   color: #ffd180;
 }
 
-.post-body-text-container {
+.post-body {
   background-color: #eeeeee;
   flex: 1 1 auto;
   display: flex;
@@ -31,4 +41,51 @@
 
 .post-body-text {
   color: #4bacb8;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.comment-form-active {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form-container {
+  border: 1px solid #01579b;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+
+.comment-input {
+  width: 90%;
+  padding: 10px;
+  font-size: 1em;
+  border: 0px;
+  outline: none;
+  text-align: center;
+}
+
+.input-area {
+
+}
+
+.comment-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.comment-form-button {
+  background-color: #01579b;
+  border: 1px solid #01579b;
+  border-radius: 100px;
+  color: #ffff;
+  font-weight: bold;
+  padding: 6px 16px;
+  text-align: center;
 }

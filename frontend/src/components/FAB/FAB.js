@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './FAB.css'
 
-const FloatingActionButton = ({ to }) => (
-  <Link to={to} className="fab-main" />
+const FloatingActionButton = ({ children, to }) => (
+  <Link to={to} className="fab-main">
+    {children}
+  </Link>
 );
 
 FloatingActionButton.propTypes = {
