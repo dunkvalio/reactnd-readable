@@ -10,9 +10,6 @@ import PostDetails from './PostDetails';
 class PostDetailsContainer extends Component {
 
   onPostComment = (author, body) => {
-    console.log('====================================');
-    console.log(author, body);
-    console.log('====================================');
     this.props.postComment(this.props.match.params.id, author, body);
   }
 

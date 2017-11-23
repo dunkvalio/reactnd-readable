@@ -70,9 +70,6 @@ export function deletePost(id, title, body) {
 }
 
 export function postComment(parentId, author, body) {
-  console.log('====================================');
-  console.log("API", parentId, author, body);
-  console.log('====================================');
   return api.post('/comments', {
     id: guid(),
     timestamp: getTimestamp(),
