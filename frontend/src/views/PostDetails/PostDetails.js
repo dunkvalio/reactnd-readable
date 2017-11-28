@@ -63,11 +63,11 @@ class PostDetails extends Component {
     const { showCommentForm } = this.state;
 
     return (
-      <di>
+      <div>
         <Header>
           <BackButton onClick={onGoBack} />
           <Title small>{post.title}</Title>
-          <Link to='/posts/edit'>
+          <Link to={{ pathname: '/posts/edit', state: { post } }}>
             <EditIcon size={40} color="#01579b" />
           </Link>
         </Header>
@@ -80,7 +80,7 @@ class PostDetails extends Component {
           />
           {showCommentForm && (
             <div className='form card-container padded'>
-              <div className="form-container">
+              <div className="form-input-container">
                 <input
                   type="text"
                   placeholder="Enter your name"
@@ -88,7 +88,7 @@ class PostDetails extends Component {
                   ref={input => this.authorInput = input}
                 />
               </div>
-              <div className="form-container">
+              <div className="form-input-container">
                 <input
                   type="textarea"
                   placeholder="Post your comment here..."
@@ -107,7 +107,7 @@ class PostDetails extends Component {
             {comment => <Comment data={comment} />}
           </List>
         </Content>
-      </di>
+      </div>
     );
   }
 }

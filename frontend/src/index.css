@@ -49,6 +49,11 @@ a {
   border: 0px;
   outline: none;
   text-align: center;
+  color: #01579b;
+}
+
+.form-input:disabled {
+  color: gray;
 }
 
 .input-area {
@@ -63,6 +68,10 @@ a {
   background-color: #fefefe;
   color: #01579b;
   margin-bottom: 12px;
+}
+
+.form-select:disabled {
+  color: gray;
 }
 
 .form-select-option {
