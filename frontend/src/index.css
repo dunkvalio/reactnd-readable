@@ -17,3 +17,71 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.form-active {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-multicolumn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-input-container {
+  border: 1px solid #01579b;
+  border-radius: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.form-input {
+  width: 80%;
+  padding: 10px;
+  font-size: 1em;
+  border: 0px;
+  outline: none;
+  text-align: center;
+}
+
+.input-area {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-select {
+  display: block;
+  font-size: 16px;
+  border: 1px solid #01579b;
+  background-color: #fefefe;
+  color: #01579b;
+  margin-bottom: 12px;
+}
+
+.form-select-option {
+  text-align: center;
+  color: #01579b;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form-button-primary {
+  background-color: #01579b;
+  border: 1px solid #01579b;
+  border-radius: 100px;
+  color: #ffff;
+  font-weight: bold;
+  padding: 6px 16px;
+  text-align: center;
+}

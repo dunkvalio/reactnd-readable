@@ -1,3 +1,3 @@
-import EditPost from './EditPost';
+import EditPost from './EditPostContainer';
 
 export default EditPost;

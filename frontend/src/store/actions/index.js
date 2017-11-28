@@ -15,6 +15,12 @@ export const FETCH_COMMENTS_ERROR = 'FETCH_COMMENTS_ERROR';
 export const POST_COMMENT_SUCCESS = 'POST_COMMENT_SUCCESS';
 export const POST_COMMENT_ERROR = 'POST_COMMENT_ERROR';
 
+export const CREATE_POST_SUCCESS = 'CREATE_POST_SUCCESS';
+export const CREATE_POST_ERROR = 'CREATE_POST_ERROR';
+
+export const EDIT_POST_SUCCESS = 'EDIT_POST_SUCCESS';
+export const EDIT_POST_ERROR = 'EDIT_POST_ERROR';
+
 export function fetchCategories() {
   return dispatch => {
     api.getCategories()
@@ -57,9 +63,24 @@ export function fetchCommentsForPost(id) {
 
 export function postComment(postId, author, body) {
   return dispatch => {
-    api
-      .postComment(postId, author, body)
+    api.postComment(postId, author, body)
       .then(data => dispatch({ type: POST_COMMENT_SUCCESS, data }))
       .catch(error => dispatch({ type: POST_COMMENT_ERROR }));
+  }
+}
+
+export function createPost(author, title, body, category) {
+  return dispatch => {
+    api.postPost(author, title, body, category)
+      .then(() => dispatch({ type: CREATE_POST_SUCCESS }))
+      .catch(() => dispatch({ type: CREATE_POST_ERROR }));
+  }
+}
+
+export function updatePost(id, title, body) {
+  return dispatch => {
+    api.putPost(id, title, body)
+      .then(() => dispatch({ type: EDIT_POST_SUCCESS }))
+      .catch(() => dispatch({ type: EDIT_POST_ERROR }));
   }
 }

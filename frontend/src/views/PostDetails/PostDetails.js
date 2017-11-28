@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import EditIcon from 'react-icons/lib/fa/pencil-square';
 import CommentIcon from 'react-icons/lib/fa/comment';
 import AddIcon from 'react-icons/lib/fa/plus';
 import './PostDetails.css';
 
-import Screen from '../../components/Screen';
 import Header from '../../components/Header';
 import BackButton from '../../components/BackButton';
 import Content from '../../components/Content';
@@ -61,13 +60,16 @@ class PostDetails extends Component {
 
   render() {
     const { comments, post, onGoBack } = this.props;
-    const { commentInProgress, showCommentForm } = this.state;
+    const { showCommentForm } = this.state;
+
     return (
-      <Screen>
+      <di>
         <Header>
           <BackButton onClick={onGoBack} />
           <Title small>{post.title}</Title>
-          <EditIcon size={40} color="#01579b" />
+          <Link to='/posts/edit'>
+            <EditIcon size={40} color="#01579b" />
+          </Link>
         </Header>
         <Content>
           <PostBody
@@ -77,25 +79,25 @@ class PostDetails extends Component {
             onAddComment={this.toggleCommentForm}
           />
           {showCommentForm && (
-            <div className='comment-form card-container padded'>
-              <div className="comment-form-container">
+            <div className='form card-container padded'>
+              <div className="form-container">
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  className='comment-input'
+                  className='form-input'
                   ref={input => this.authorInput = input}
                 />
               </div>
-              <div className="comment-form-container">
+              <div className="form-container">
                 <input
                   type="textarea"
                   placeholder="Post your comment here..."
-                  className='comment-input input-area'
+                  className='form-input input-area'
                   ref={input => this.commentInput = input}
                 />
               </div>
-              <div className='comment-form-footer'>
-                <button onClick={this.postComment} className="comment-form-button">
+              <div className='form-footer'>
+                <button onClick={this.postComment} className="form-button-primary">
                   Post Comment
                 </button>
               </div>
@@ -105,7 +107,7 @@ class PostDetails extends Component {
             {comment => <Comment data={comment} />}
           </List>
         </Content>
-      </Screen>
+      </di>
     );
   }
 }

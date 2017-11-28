@@ -44,12 +44,13 @@ export function getCommentsForPost(id) {
     .then(res => res.data);
 }
 
-export function postPost(title, author, body, category) {
+export function postPost(author, title, body, category) {
   return api.post('/posts', {
     id: guid(),
     timestamp: getTimestamp(),
-    body,
+    title,
     author,
+    body,
     category,
   }).then(res => res.data);
 }
