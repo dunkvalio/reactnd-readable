@@ -29,22 +29,28 @@ class EditPost extends Component {
   }
 
   onClickSave = () => {
-    const author = this.authorInput.value;
-    const title = this.titleInput.value;
-    const body = this.bodyInput.value;
-    const category = this.categorySelect.value;
+    const {
+      authorInput, categorySelect, titleInput, bodyInput
+    } = this;
 
-    this.props.onSave(author, title, body, category);
+    this.props.onSave(
+      authorInput.value,
+      titleInput.value,
+      bodyInput.value,
+      categorySelect.value
+    );
     this.props.onGoBack();
   };
 
   canSave = () => {
-    const author = this.authorInput.value;
-    const title = this.titleInput.value;
-    const body = this.bodyInput.value;
-    const category = this.categorySelect.value;
+    const {
+      authorInput, categorySelect, titleInput, bodyInput
+    } = this;
 
-    return author && category && title && body;
+    return authorInput.value
+      && categorySelect.value
+      && titleInput.value
+      && bodyInput.value;
   };
 
   onChange = (state, formFieldRef) => () => {
