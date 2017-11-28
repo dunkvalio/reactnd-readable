@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import EditIcon from 'react-icons/lib/fa/pencil-square';
 import CommentIcon from 'react-icons/lib/fa/comment';
 import AddIcon from 'react-icons/lib/fa/plus';
-import './PostDetails.css';
+
+import { buttonPrimary } from '../../utils/colors';
 
 import Header from '../../components/Header';
 import BackButton from '../../components/BackButton';
@@ -21,8 +22,8 @@ const PostBody = ({ text, author, timestamp, onAddComment }) => (
     </div>
     <div className="post-details">
       <div className="post-details-add-comment" onClick={onAddComment}>
-        <AddIcon size={10} color="#01579b" />
-        <CommentIcon size={20} color="#01579b" />
+        <AddIcon size={10} color={buttonPrimary} />
+        <CommentIcon size={20} color={buttonPrimary} />
       </div>
       <h6 className="post-details-text">
         {moment(new Date(timestamp)).fromNow()}
@@ -68,7 +69,7 @@ class PostDetails extends Component {
           <BackButton onClick={onGoBack} />
           <Title small>{post.title}</Title>
           <Link to={{ pathname: '/posts/edit', state: { post } }}>
-            <EditIcon size={40} color="#01579b" />
+            <EditIcon size={40} color={buttonPrimary} />
           </Link>
         </Header>
         <Content>

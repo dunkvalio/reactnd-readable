@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import './Comment.css'
 
 const Comment = ({ data }) => (
   <div className="comment-container card-container">

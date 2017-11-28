@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CheckIcon from 'react-icons/lib/fa/check';
 
+import {
+  buttonPrimary, buttonPrimaryDisabled
+} from '../../utils/colors';
+
 import Header from '../../components/Header';
 import BackButton from '../../components/BackButton';
 import Title from '../../components/Title';
@@ -35,7 +39,11 @@ class EditPost extends Component {
   };
 
   canSave = () => {
-    const { author, category, title, body} = this.state;
+    const author = this.authorInput.value;
+    const title = this.titleInput.value;
+    const body = this.bodyInput.value;
+    const category = this.categorySelect.value;
+
     return author && category && title && body;
   };
 
@@ -52,7 +60,7 @@ class EditPost extends Component {
       heading, isEdit, author, category, title, body, savable
     } = this.state;
 
-    const saveButtonColor = savable ? '#01579b' : '#fefefe';
+    const saveButtonColor = savable ? buttonPrimary : buttonPrimaryDisabled;
     const saveAction = savable ? this.onClickSave : () => {};
 
     return (

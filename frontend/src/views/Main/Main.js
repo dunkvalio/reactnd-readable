@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import AddIcon from 'react-icons/lib/fa/plus';
+
+import { buttonPrimary } from '../../utils/colors';
 
 import Header from '../../components/Header';
 import CategoryList from '../../components/CategoryList';
 import Content from '../../components/Content';
 import List from '../../components/List';
 import Post from '../../components/Post';
-import FAB from '../../components/FAB';
 
 const Main = ({ categories, posts }) => (
   <div>
     <Header>
+      <div />
       <CategoryList data={categories} />
+      <Link to='/posts/edit'>
+        <AddIcon size={30} color={buttonPrimary} />
+      </Link>
     </Header>
     <Content>
       <List
@@ -24,9 +30,6 @@ const Main = ({ categories, posts }) => (
           <Post pos={++index} item={item} />
         )}
       </List>
-      <FAB to='/posts/edit'>
-        <AddIcon size={20} color='#ffff'/>
-      </FAB>
     </Content>
   </div>
 );
