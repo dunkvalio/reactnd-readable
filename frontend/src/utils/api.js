@@ -56,10 +56,13 @@ export function postPost(author, title, body, category) {
 }
 
 export function postPostVote(id, vote) {
-  return api.post(
-      `/posts/${id}`,
-      { option: (vote > 0) ? 'upVote' : 'downVote' }
-    ).then(res => res.data);
+  let option;
+  if (vote === 1) {
+    option = 'upVote';
+  } else if (vote === -1) {
+    option ='downVote';
+  }
+  return api.post(`/posts/${id}`, { option }).then(res => res.data);
 }
 
 export function putPost(id, title, body) {

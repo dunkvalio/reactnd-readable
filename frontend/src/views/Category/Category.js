@@ -16,7 +16,7 @@ const CategoryView = ({ category, posts, onGoBack }) => (
       <div />
     </Header>
     <Content>
-      <List className="posts-list" data={posts} getKey={item => item.id}>
+      <List className="list" data={posts} getKey={item => item.id}>
         {(item, index) => <Post pos={++index} item={item} />}
       </List>
     </Content>

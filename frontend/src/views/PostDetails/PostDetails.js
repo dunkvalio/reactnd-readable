@@ -7,6 +7,7 @@ import CommentIcon from 'react-icons/lib/md/comment';
 import AddIcon from 'react-icons/lib/md/add';
 
 import { buttonPrimary } from '../../utils/colors';
+import { presentVoteScore } from '../../utils/text';
 
 import Header from '../../components/Header';
 import BackButton from '../../components/BackButton';
@@ -15,28 +16,44 @@ import Title from '../../components/Title';
 import List from '../../components/List';
 import Comment from '../../components/Comment';
 
-const PostBody = ({ text, author, timestamp, onAddComment }) => (
-  <div className="post-details-container">
-    <div className="post-body">
-      <h2 className="post-body-text">{text}</h2>
-    </div>
-    <div className="post-details group">
-      <div className="post-details-add-comment" onClick={onAddComment}>
-        <AddIcon size={20} color={buttonPrimary} />
-        <CommentIcon size={20} color={buttonPrimary} />
+const PostBody = (props) => {
+  const { text, author, timestamp, voteScore, onAddComment } = props;
+
+  return (
+    <div className="post-details-container">
+      <div className="post-body">
+        <h2 className="post-body-text">{text}</h2>
       </div>
-      <h6 className="post-details-text">
-        {moment(new Date(timestamp)).fromNow()}
-        <span className="post-author"> by {author}</span>
-      </h6>
+      <div className="post-details group">
+        <div className="post-details-add-comment" onClick={onAddComment}>
+          <AddIcon size={20} color={buttonPrimary} />
+          <CommentIcon size={20} color={buttonPrimary} />
+        </div>
+        <h4 className="post-score primary-color">
+          {presentVoteScore(voteScore)}
+        </h4>
+        <h6 className="post-details-text no-margin">
+          {moment(new Date(timestamp)).fromNow()}
+          <span className="primary-color"> by {author}</span>
+        </h6>
+      </div>
     </div>
-  </div>
-);
+  )
+};
 
 PostBody.propTypes = {
   text: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   timestamp: PropTypes.number.isRequired,
+  voteScore: PropTypes.number,
+  onAddComment: PropTypes.func.isRequired,
+};
+
+PostBody.defaultProps = {
+  text: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  timestamp: PropTypes.number.isRequired,
+  voteScore: '0 points',
   onAddComment: PropTypes.func.isRequired,
 };
 
@@ -77,6 +94,7 @@ class PostDetails extends Component {
             text={post.body}
             author={post.author}
             timestamp={post.timestamp}
+            voteScore={post.voteScore}
             onAddComment={this.toggleCommentForm}
           />
           {showCommentForm && (
@@ -104,7 +122,7 @@ class PostDetails extends Component {
               </div>
             </div>
           )}
-          <List className="comments-list" data={comments} getKey={item => item.id}>
+          <List className="list" data={comments} getKey={item => item.id}>
             {comment => <Comment data={comment} />}
           </List>
         </Content>

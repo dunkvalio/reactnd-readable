@@ -35,32 +35,6 @@
   font-size: large;
 }
 
-.posts-list {
-  width: 100%;
-  margin: 0px;
-}
-
-.comments-list {
-  width: 100%;
-  margin: 0px;
-}
-
-.card-container {
-  border: 1px solid transparent;
-  border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  display: flex;
-}
-
-.padded {
-  padding: 12px;
-}
-
-.border-container {
-  border: 1px solid #01579b;
-  border-radius: 100px;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

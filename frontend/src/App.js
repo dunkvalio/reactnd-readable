@@ -8,16 +8,14 @@ import './App.css';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
+    return <div className="App">
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/category/:name/posts" component={Category} />
+          <Route exact path="/:category" component={Category} />
           <Route exact path="/posts/edit" component={EditPost} />
-          <Route exact path="/posts/:id" component={PostDetails} />
+          <Route exact path="/:category/:post_id" component={PostDetails} />
         </Switch>
-      </div>
-    );
+      </div>;
   }
 }
 

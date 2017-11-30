@@ -23,24 +23,25 @@ const defaultPosts = {
   sortOptions: ['voteScore', 'timestamp', 'commentCount'],
 };
 
+const compateFunc = (sortBy) => (a, b) => {
+  if (a[sortBy] < b[sortBy]) return 1;
+  if (a[sortBy] > b[sortBy]) return -1;
+  return 0;
+};
+
 const posts = (state = defaultPosts, action) => {
   switch (action.type) {
     case FETCH_POSTS_SUCCESS:
       return {
         ...state,
-        posts: action.posts
+        posts: action.posts.sort(compateFunc(state.sortBy))
       };
     case SORT_POSTS:
       const { sortBy } = action;
-
       return {
         ...state,
         sortBy,
-        posts: Array.of(...state.posts).sort((a, b) => {
-          if (a[sortBy] < b[sortBy]) return 1;
-          if (a[sortBy] > b[sortBy]) return -1;
-          return 0;
-        }),
+        posts: Array.of(...state.posts).sort(compateFunc(sortBy)),
       }
     default:
       return state;

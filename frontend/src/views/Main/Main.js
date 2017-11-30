@@ -22,6 +22,10 @@ class Main extends Component {
     showModal: false,
   }
 
+  componentDidMount() {
+    this.props.onSort(this.props.sortBy);
+  }
+
   openSortModal = () => {
     this.setState({ showModal: true });
   }
@@ -41,7 +45,8 @@ class Main extends Component {
       posts,
       sortBy,
       sortOptions,
-      onSort
+      onSort,
+      onVote,
     } = this.props;
     const { showModal } = this.state;
 
@@ -60,8 +65,10 @@ class Main extends Component {
           </Group>
         </Header>
         <Content>
-          <List className='posts-list' data={posts} getKey={item => item.id}>
-            {(item, index) => (<Post pos={++index} item={item} />)}
+          <List className='list' data={posts} getKey={item => item.id}>
+            {(item, index) => (
+              <Post pos={++index} onVote={onVote} item={item} />
+            )}
           </List>
         </Content>
         {showModal && (
@@ -100,6 +107,7 @@ Main.propTypes = {
   sortBy: PropTypes.string,
   sortOptions: PropTypes.arrayOf(PropTypes.string),
   onSort: PropTypes.func.isRequired,
+  onVote: PropTypes.func.isRequired,
 };
 
 Main.defaultProps = {
@@ -108,6 +116,7 @@ Main.defaultProps = {
   sortBy: '',
   sortOptions: [],
   onSort: null,
+  onVote: null,
 };
 
 export default Main;

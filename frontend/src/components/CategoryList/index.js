@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import List from '../List';
 
 const Category = ({ item, className }) => (
-  <Link to={`/category/${item.path}/posts`}>
+  <Link to={`/${item.path}`}>
     <div className={className}>{item.name}</div>
   </Link>
 );
@@ -20,11 +20,7 @@ Category.defaultProps = {
 }
 
 const CategoryList = ({ data }) => (
-  <List
-    className="category-list"
-    data={data}
-    getKey={item => item.name}
-  >
+  <List className="flex" data={data} getKey={item => item.name}>
     {item => (
       <Category item={item} className="category-list-item" />
     )}

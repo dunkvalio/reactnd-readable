@@ -10,12 +10,12 @@ import PostDetails from './PostDetails';
 class PostDetailsContainer extends Component {
 
   onPostComment = (author, body) => {
-    this.props.postComment(this.props.match.params.id, author, body);
+    this.props.postComment(this.props.match.params.post_id, author, body);
   }
 
   componentDidMount() {
-    this.props.getPostDetails(this.props.match.params.id);
-    this.props.getComments(this.props.match.params.id);
+    this.props.getPostDetails(this.props.match.params.post_id);
+    this.props.getComments(this.props.match.params.post_id);
   }
 
   render() {

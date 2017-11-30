@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchCategories, fetchPosts, sortPosts } from "../../store/actions";
+import {
+  fetchCategories,
+  fetchPosts,
+  sortPosts,
+  postPostVote,
+} from "../../store/actions";
+
 import Main from './Main';
 
 class MainContainer extends Component {
@@ -10,13 +16,22 @@ class MainContainer extends Component {
     this.props.fetchPosts();
   }
 
-  onSort = (sortBy) => {
+  onSort = sortBy => {
     this.props.sortPosts(sortBy);
+  }
+
+  onVote = (postId, vote) => {
+    this.props.postVote(postId, vote);
+    this.props.fetchPosts();
   }
 
   render() {
     return (
-      <Main onSort={this.onSort} {...this.props} />
+      <Main
+        onSort={this.onSort}
+        onVote={this.onVote}
+        {...this.props}
+      />
     );
   }
 }
@@ -27,6 +42,7 @@ const mapStateToProps = ({ categories, posts }) => {
     posts: posts.posts,
     sortBy: posts.sortBy,
     sortOptions: posts.sortOptions,
+    refresh: posts.refreshList,
   };
 };
 
@@ -35,6 +51,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchCategories: () => dispatch(fetchCategories()),
     fetchPosts: () => dispatch(fetchPosts()),
     sortPosts: (sortBy) => dispatch(sortPosts(sortBy)),
+    postVote: (postId, vote) => dispatch(postPostVote(postId, vote)),
   }
 };
 

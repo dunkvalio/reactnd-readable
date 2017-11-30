@@ -18,10 +18,22 @@ a {
   color: black;
 }
 
+.flex {
+  display: flex;
+}
+
+.stretch {
+  align-self: stretch;
+}
+
 .group {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.no-margin {
+  margin: 0px;
 }
 
 .header-icon {
@@ -34,11 +46,38 @@ a {
   color: #01579b;
 }
 
+.list {
+  width: 100%;
+  margin: 0px;
+}
+
+.padded {
+  padding: 12px;
+}
+
+.border-container {
+  border: 1px solid #01579b;
+  border-radius: 100px;
+}
+
 .post-card {
   background-color: #ffff;
   cursor: pointer;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+.card-container {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-card-body {
+  flex: 1;
 }
 
 .post-rank {
@@ -52,12 +91,20 @@ a {
 
 .post-title {
   color: #01579b;
-  margin: 0px;
 }
 
 .post-description {
   color: #4bacb8;
-  margin: 0px;
+}
+
+.post-vote-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vote-item {
+  margin: 0px 6px;
 }
 
 .post-details-container {
@@ -72,6 +119,7 @@ a {
 .post-details {
   background-color: #4bacb8;
   padding: 3px 6px;
+  position: relative;
 }
 
 .post-details-add-comment {
@@ -83,10 +131,18 @@ a {
 
 .post-details-text {
   color: #fafafa;
-  margin: 0px;
 }
 
-.post-author {
+.post-score {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100px;
+}
+
+.primary-color {
   color: #ffd180;
 }
 
@@ -111,7 +167,6 @@ a {
 }
 
 .comment-header-text {
-  margin: 0px;
   padding: 3px 6px;
   color: #01579b;
 }
@@ -120,11 +175,6 @@ a {
   margin: 3px;
   background-color: #ffffb1;
   color: #01579b;
-}
-
-.category-list {
-  display: flex;
-  flex-direction: horizontal;
 }
 
 .category-list-item {
