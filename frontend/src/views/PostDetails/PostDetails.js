@@ -108,8 +108,10 @@ class PostDetails extends Component {
                 />
               </div>
               <div className="form-input-container">
-                <input
-                  type="textarea"
+                <textarea
+                  cols='80'
+                  rows='1'
+                  wrap='soft'
                   placeholder="Post your comment here..."
                   className='form-input input-area'
                   ref={input => this.commentInput = input}

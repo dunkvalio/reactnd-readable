@@ -125,9 +125,11 @@ class EditPost extends Component {
               />
             </div>
             <div className='form-input-container'>
-              <input
+              <textarea
                 className='form-input input-area'
-                type='textarea'
+                cols='80'
+                rows='1'
+                wrap='soft'
                 value={body}
                 placeholder='Post your comment here...'
                 ref={input => {this.bodyInput = input}}

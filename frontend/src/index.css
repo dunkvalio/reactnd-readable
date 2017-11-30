@@ -194,25 +194,29 @@ a {
   border: 1px solid #01579b;
   border-radius: 1.5rem;
   margin-bottom: 12px;
+  vertical-align: top;
 }
 
 .form-input {
-  width: 80%;
-  padding: 10px;
-  font-size: 1em;
+  width: 90%;
+  padding: 12px;
+  font-size: 0.8em;
   border: 0px;
   outline: none;
-  text-align: center;
   color: #01579b;
+  word-wrap: break-word;
+  overflow: hidden;
+  border-radius: 100px;
+  text-align: start;
 }
 
 .form-input:disabled {
   color: gray;
 }
 
-.input-area {
-  margin-left: auto;
-  margin-right: auto;
+.input-area:focus {
+  min-height: 80px;
+  border-radius: 30px;
 }
 
 .form-select {

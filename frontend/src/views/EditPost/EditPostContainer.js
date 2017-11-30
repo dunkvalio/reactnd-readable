@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {
   createPost, updatePost, fetchCategories
 } from '../../store/actions';
+
 import EditPost from './EditPost';
 
 class EditPostContainer extends Component {
