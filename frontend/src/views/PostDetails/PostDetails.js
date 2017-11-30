@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import EditIcon from 'react-icons/lib/fa/pencil-square';
-import CommentIcon from 'react-icons/lib/fa/comment';
-import AddIcon from 'react-icons/lib/fa/plus';
+import EditIcon from 'react-icons/lib/md/edit';
+import CommentIcon from 'react-icons/lib/md/comment';
+import AddIcon from 'react-icons/lib/md/add';
 
 import { buttonPrimary } from '../../utils/colors';
 
@@ -20,9 +20,9 @@ const PostBody = ({ text, author, timestamp, onAddComment }) => (
     <div className="post-body">
       <h2 className="post-body-text">{text}</h2>
     </div>
-    <div className="post-details">
+    <div className="post-details group">
       <div className="post-details-add-comment" onClick={onAddComment}>
-        <AddIcon size={10} color={buttonPrimary} />
+        <AddIcon size={20} color={buttonPrimary} />
         <CommentIcon size={20} color={buttonPrimary} />
       </div>
       <h6 className="post-details-text">
@@ -69,7 +69,7 @@ class PostDetails extends Component {
           <BackButton onClick={onGoBack} />
           <Title small>{post.title}</Title>
           <Link to={{ pathname: '/posts/edit', state: { post } }}>
-            <EditIcon size={40} color={buttonPrimary} />
+            <EditIcon size={30} color={buttonPrimary} />
           </Link>
         </Header>
         <Content>

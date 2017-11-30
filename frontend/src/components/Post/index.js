@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import moment from 'moment';
-import CommentsIcon from 'react-icons/lib/fa/comments';
+import CommentsIcon from 'react-icons/lib/md/mode-comment';
 
 import { secondary } from '../../utils/colors';
 

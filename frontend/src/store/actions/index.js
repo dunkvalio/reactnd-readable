@@ -21,6 +21,8 @@ export const CREATE_POST_ERROR = 'CREATE_POST_ERROR';
 export const EDIT_POST_SUCCESS = 'EDIT_POST_SUCCESS';
 export const EDIT_POST_ERROR = 'EDIT_POST_ERROR';
 
+export const SORT_POSTS = 'SORT_POSTS';
+
 export function fetchCategories() {
   return dispatch => {
     api.getCategories()
@@ -82,5 +84,11 @@ export function updatePost(id, title, body) {
     api.putPost(id, title, body)
       .then(() => dispatch({ type: EDIT_POST_SUCCESS }))
       .catch(() => dispatch({ type: EDIT_POST_ERROR }));
+  }
+}
+
+export function sortPosts(sortBy) {
+  return dispatch => {
+    dispatch({ type: SORT_POSTS, sortBy});
   }
 }

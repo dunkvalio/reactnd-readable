@@ -5,6 +5,7 @@ import {
   FETCH_POST_DETAILS_SUCCESS,
   FETCH_COMMENTS_SUCCESS,
   POST_COMMENT_SUCCESS,
+  SORT_POSTS,
 } from '../actions';
 
 const categories = (state = {}, action) => {
@@ -16,10 +17,31 @@ const categories = (state = {}, action) => {
   }
 }
 
-const posts = (state = {}, action) => {
+const defaultPosts = {
+  posts: [],
+  sortBy: 'voteScore',
+  sortOptions: ['voteScore', 'timestamp', 'commentCount'],
+};
+
+const posts = (state = defaultPosts, action) => {
   switch (action.type) {
     case FETCH_POSTS_SUCCESS:
-      return { posts: action.posts };
+      return {
+        ...state,
+        posts: action.posts
+      };
+    case SORT_POSTS:
+      const { sortBy } = action;
+
+      return {
+        ...state,
+        sortBy,
+        posts: Array.of(...state.posts).sort((a, b) => {
+          if (a[sortBy] < b[sortBy]) return 1;
+          if (a[sortBy] > b[sortBy]) return -1;
+          return 0;
+        }),
+      }
     default:
       return state;
   }

@@ -18,6 +18,17 @@ a {
   color: black;
 }
 
+.group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-icon {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
 .title-container {
   text-align: center;
   color: #01579b;
@@ -59,10 +70,7 @@ a {
 }
 
 .post-details {
-  align-items: center;
   background-color: #4bacb8;
-  display: flex;
-  justify-content: space-between;
   padding: 3px 6px;
 }
 
@@ -102,12 +110,6 @@ a {
   margin-top: 5px;
 }
 
-.comment-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between
-}
-
 .comment-header-text {
   margin: 0px;
   padding: 3px 6px;
@@ -141,12 +143,6 @@ a {
 .form-active {
   display: flex;
   flex-direction: column;
-}
-
-.form-multicolumn-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .form-input-container {
@@ -206,4 +202,50 @@ a {
   font-weight: bold;
   padding: 6px 16px;
   text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.modal {
+  position: absolute;
+  top: 200px;
+  left: 350px;
+  right: 350px;
+  bottom: 200px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .24), 0 3px 12px 0 rgba(0, 0, 0, .12);
+  min-width: 300px;
+}
+
+.option-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  margin: 12px 6px;
+  cursor: pointer;
+}
+
+.option-value {
+  color: #01579b;
+  font-size: 1.5rem;
+  margin-left: 2rem;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import ArrowLeftIcon from 'react-icons/lib/fa/arrow-left';
+import ArrowLeftIcon from 'react-icons/lib/md/arrow-back';
 
 import { buttonPrimary } from '../../utils/colors';
 
 const BackButton = ({ onClick }) => (
   <div onClick={onClick}>
-    <ArrowLeftIcon size={25} color={buttonPrimary} />
+    <ArrowLeftIcon size={30} color={buttonPrimary} />
   </div>
 );
 
