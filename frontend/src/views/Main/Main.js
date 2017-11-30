@@ -49,19 +49,20 @@ class Main extends Component {
           <div />
           <CategoryList data={categories} />
           <Group>
-            <div className='header-icon' onClick={this.openSortModal}>
-              <SortIcon size={30} color={buttonPrimary} />
-            </div>
-            <Link to='/posts/edit'>
+            <SortIcon
+              onClick={this.openSortModal}
+              size={30}
+              color={buttonPrimary}
+              className="header-icon"
+            />
+            <Link to="/posts/edit">
               <AddIcon size={30} color={buttonPrimary} />
             </Link>
           </Group>
         </Header>
         <Content>
-          <List className='list' data={posts} getKey={item => item.id}>
-            {(item, index) => (
-              <Post pos={++index} onVote={onVote} item={item} />
-            )}
+          <List className="list" data={posts} getKey={item => item.id}>
+            {(item, index) => <Post pos={++index} onVote={onVote} item={item} />}
           </List>
         </Content>
         {showModal && (

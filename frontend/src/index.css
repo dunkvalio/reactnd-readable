@@ -190,11 +190,6 @@ a {
   width: 100%;
 }
 
-.form-active {
-  display: flex;
-  flex-direction: column;
-}
-
 .form-input-container {
   border: 1px solid #01579b;
   border-radius: 1.5rem;
@@ -221,12 +216,12 @@ a {
 }
 
 .form-select {
-  display: block;
   font-size: 16px;
   border: 1px solid #01579b;
   background-color: #fefefe;
   color: #01579b;
   margin-bottom: 12px;
+  align-self: center;
 }
 
 .form-select:disabled {

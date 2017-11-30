@@ -44,9 +44,12 @@ class CategoryView extends Component {
           <BackButton onClick={onGoBack} />
           <Title>{category}</Title>
           <Group>
-            <div className="header-icon" onClick={this.openSortModal}>
-              <SortIcon size={30} color={buttonPrimary} />
-            </div>
+            <SortIcon
+              className="header-icon"
+              size={30}
+              color={buttonPrimary}
+              onClick={this.openSortModal}
+            />
             <Link to="/posts/edit">
               <AddIcon size={30} color={buttonPrimary} />
             </Link>

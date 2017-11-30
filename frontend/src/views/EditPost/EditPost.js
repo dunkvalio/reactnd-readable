@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CheckIcon from 'react-icons/lib/fa/check';
+import CheckIcon from 'react-icons/lib/md/check';
 
 import {
   buttonPrimary, buttonPrimaryDisabled
@@ -15,14 +15,14 @@ class EditPost extends Component {
 
   constructor(props) {
     super(props);
-    const { categories, post } = props;
+    const { post } = props;
 
     this.state = {
       savable: !!post,
       isEdit: !!post,
       heading: post ? post.title : 'Create Post',
       author: post ? post.author : '',
-      category: post ? post.category : categories[0].name,
+      category: post ? post.category : '',
       title: post ? post.title : '',
       body: post ? post.body : '',
     };
@@ -39,6 +39,7 @@ class EditPost extends Component {
       bodyInput.value,
       categorySelect.value
     );
+
     this.props.onGoBack();
   };
 
@@ -74,7 +75,12 @@ class EditPost extends Component {
         <Header>
           <BackButton onClick={onGoBack} />
           <Title>{heading}</Title>
-          <CheckIcon size={30} color={saveButtonColor} onClick={saveAction} />
+          <CheckIcon
+            className='header-icon'
+            size={30}
+            color={saveButtonColor}
+            onClick={saveAction}
+          />
         </Header>
         <Content>
           <div className='form padded'>
