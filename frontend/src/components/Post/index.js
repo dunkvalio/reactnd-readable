@@ -19,7 +19,7 @@ const postDescription = (post) => {
   return desc;
 };
 
-const Post = ({ item, pos, onClick, onVote }) => (
+const Post = ({ item, pos, onVote }) => (
   <div className='post-card card-container padded'>
     <Link to={`/${item.category}/${item.id}`} className='post-card-body flex'>
       <h4 className='post-rank'>{pos}. </h4>
@@ -57,7 +57,6 @@ Post.propTypes = {
     voteScore: PropTypes.number.isRequired,
   }).isRequired,
   pos: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
   onVote: PropTypes.func.isRequired,
 }
 

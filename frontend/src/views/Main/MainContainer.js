@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+
 import {
   fetchCategories,
   fetchPosts,
@@ -42,7 +43,6 @@ const mapStateToProps = ({ categories, posts }) => {
     posts: posts.posts,
     sortBy: posts.sortBy,
     sortOptions: posts.sortOptions,
-    refresh: posts.refreshList,
   };
 };
 

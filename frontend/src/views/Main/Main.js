@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import AddIcon from 'react-icons/lib/md/add';
 import SortIcon from 'react-icons/lib/md/sort';
-import SquareIcon from 'react-icons/lib/md/check-box-outline-blank';
-import CheckSquareIcon from 'react-icons/lib/md/check-box';
 
 import { buttonPrimary } from '../../utils/colors';
 
@@ -15,15 +12,12 @@ import Group from '../../components/Group';
 import Content from '../../components/Content';
 import List from '../../components/List';
 import Post from '../../components/Post';
+import SortModal from '../../components/SortModal';
 
 class Main extends Component {
 
   state = {
     showModal: false,
-  }
-
-  componentDidMount() {
-    this.props.onSort(this.props.sortBy);
   }
 
   openSortModal = () => {
@@ -34,8 +28,8 @@ class Main extends Component {
     this.setState({ showModal: false });
   }
 
-  onSortBy = (func, value) => () => {
-    func(value);
+  onSortBy = (value) => {
+    this.props.onSort(value);
     this.closeSortModal();
   }
 
@@ -45,7 +39,6 @@ class Main extends Component {
       posts,
       sortBy,
       sortOptions,
-      onSort,
       onVote,
     } = this.props;
     const { showModal } = this.state;
@@ -72,29 +65,13 @@ class Main extends Component {
           </List>
         </Content>
         {showModal && (
-          <Modal
-            className='modal option-container'
-            overlayClassName='overlay'
+          <SortModal
             isOpen={showModal}
             onRequestClose={this.closeSortModal}
-            contentLabel='Sort Posts'
-          >
-            {sortOptions.map(val => (
-              <div
-                className='option'
-                key={val}
-                onClick={this.onSortBy(onSort, val)}
-              >
-                {val === sortBy
-                  ? <CheckSquareIcon size={30} color={buttonPrimary} />
-                  : <SquareIcon size={30} color={buttonPrimary} />
-                }
-                <div className='option-value'>
-                  {val}
-                </div>
-              </div>
-            ))}
-          </Modal>
+            data={sortOptions}
+            selected={sortBy}
+            onSelect={this.onSortBy}
+          />
         )}
       </div>
     );
