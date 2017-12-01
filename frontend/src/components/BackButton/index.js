@@ -4,9 +4,12 @@ import ArrowLeftIcon from 'react-icons/lib/md/arrow-back';
 import { buttonPrimary } from '../../utils/colors';
 
 const BackButton = ({ onClick }) => (
-  <div onClick={onClick}>
-    <ArrowLeftIcon size={30} color={buttonPrimary} />
-  </div>
+  <ArrowLeftIcon
+    className='pointer'
+    size={30}
+    color={buttonPrimary}
+    onClick={onClick}
+  />
 );
 
 export default BackButton;

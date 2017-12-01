@@ -104,3 +104,21 @@ export function deletePost(id) {
     api.deletePost(id);
   }
 }
+
+export function postCommentVote(commentId, vote) {
+  return dispatch => {
+    api.postCommentVote(commentId, vote);
+  };
+}
+
+export function editComment(commentId, timestamp, body) {
+  return dispatch => {
+    api.putComment(commentId, timestamp, body);
+  }
+}
+
+export function deleteComment(commentId) {
+  return dispatch => {
+    api.deleteComment(commentId);
+  }
+}

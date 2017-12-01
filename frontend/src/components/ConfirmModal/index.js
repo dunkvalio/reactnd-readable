@@ -14,7 +14,7 @@ const ConfirmModal = props => {
       onRequestClose={onRequestClose}
       contentLabel="Sort Posts"
     >
-      <h3>{message}</h3>
+      <h3 className='flex text-centered'>{message}</h3>
       <Group>
         <button onClick={onRequestClose} className="form-button-primary">
           Cancel

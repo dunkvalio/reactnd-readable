@@ -26,19 +26,45 @@ a {
   align-self: stretch;
 }
 
-.group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.padded {
+  padding: 12px;
 }
 
 .no-margin {
   margin: 0px;
 }
 
-.header-icon {
-  margin-left: 12px;
-  margin-right: 12px;
+.primary-color {
+  color: #ffd180;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.icon {
+  margin: 12px;
+  cursor: pointer;
+}
+
+.icon-small {
+  margin: 6px;
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .title-container {
@@ -49,10 +75,6 @@ a {
 .list {
   width: 100%;
   margin: 0px;
-}
-
-.padded {
-  padding: 12px;
 }
 
 .border-container {
@@ -135,15 +157,11 @@ a {
 
 .post-score {
   position: absolute;
-  left: 50%;
-  margin-left: -50px;
+  right: 50%;
+  margin-right: -75px;
   margin-top: 0px;
   margin-bottom: 0px;
-  width: 100px;
-}
-
-.primary-color {
-  color: #ffd180;
+  min-width: 150px;
 }
 
 .post-body {
@@ -212,11 +230,6 @@ a {
 
 .form-input:disabled {
   color: gray;
-}
-
-.input-area:focus {
-  min-height: 80px;
-  border-radius: 30px;
 }
 
 .form-select {

@@ -19,6 +19,16 @@ const api = axios.create({
 
 const getTimestamp = () => Date.now();
 
+const getVote = vote => {
+  let option;
+  if (vote === 1) {
+    option = 'upVote';
+  } else if (vote === -1) {
+    option = 'downVote';
+  }
+  return option;
+};
+
 export function getCategories () {
   return api.get('/categories')
     .then(res => res.data)
@@ -56,12 +66,7 @@ export function postPost(author, title, body, category) {
 }
 
 export function postPostVote(id, vote) {
-  let option;
-  if (vote === 1) {
-    option = 'upVote';
-  } else if (vote === -1) {
-    option ='downVote';
-  }
+  const option = getVote(vote);
   return api.post(`/posts/${id}`, { option }).then(res => res.data);
 }
 
@@ -83,9 +88,17 @@ export function postComment(parentId, author, body) {
   }).then(res => res.data);
 }
 
-export function postCommentVote(id, upvote) {
-  return api.post(
-    `/comments/${id}`,
-    { option: upvote ? 'upVote' : 'downVote' }
-  ).then(res => res.data);
+export function postCommentVote(commentId, vote) {
+  const option = getVote(vote);
+  return api.post(`/comments/${commentId}`, { option }).then(res => res.data);
+}
+
+export function putComment(commentId, timestamp, body) {
+  return api.put(`/comments/${commentId}`, { timestamp, body })
+    .then(res => res.data);
+}
+
+export function deleteComment(commentId) {
+  return api.delete(`/comments/${commentId}`)
+    .then(res => res.data);
 }
