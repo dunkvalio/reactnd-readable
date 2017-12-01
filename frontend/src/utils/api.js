@@ -69,7 +69,7 @@ export function putPost(id, title, body) {
   return api.put(`/posts/${id}`, { title, body }).then(res => res.data);
 }
 
-export function deletePost(id, title, body) {
+export function deletePost(id) {
   return api.delete(`/posts/${id}`);
 }
 

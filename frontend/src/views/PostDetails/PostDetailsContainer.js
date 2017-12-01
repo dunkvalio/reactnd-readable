@@ -4,27 +4,34 @@ import {
   fetchPostById,
   fetchCommentsForPost,
   postComment,
+  deletePost,
 } from "../../store/actions";
 import PostDetails from './PostDetails';
 
 class PostDetailsContainer extends Component {
+  componentDidMount() {
+    const id = this.props.match.params.post_id;
+    this.props.getPostDetails(id);
+    this.props.getComments(id);
+  }
 
   onPostComment = (author, body) => {
     this.props.postComment(this.props.match.params.post_id, author, body);
-  }
+  };
 
-  componentDidMount() {
-    this.props.getPostDetails(this.props.match.params.post_id);
-    this.props.getComments(this.props.match.params.post_id);
+  onDeletePost = (postId) => {
+    this.props.deletePost(postId);
   }
 
   render() {
+    const { post, comments, history } = this.props;
     return (
       <PostDetails
-        post={this.props.post}
-        comments={this.props.comments}
-        onGoBack={() => this.props.history.goBack()}
+        post={post}
+        comments={comments}
+        onGoBack={() => history.goBack()}
         onPostComment={this.onPostComment}
+        onDelete={this.onDeletePost}
       />
     );
   }
@@ -50,6 +57,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     postComment: (parentId, author, body) => {
       dispatch(postComment(parentId, author, body));
     },
+    deletePost: id => { dispatch(deletePost(id)); },
   };
 }
 

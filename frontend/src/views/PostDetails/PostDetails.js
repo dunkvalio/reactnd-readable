@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import EditIcon from 'react-icons/lib/md/edit';
 import CommentIcon from 'react-icons/lib/md/comment';
 import AddIcon from 'react-icons/lib/md/add';
+import DeleteIcon from 'react-icons/lib/md/delete';
 
 import { buttonPrimary } from '../../utils/colors';
 import { presentVoteScore } from '../../utils/text';
@@ -15,6 +16,8 @@ import Content from '../../components/Content';
 import Title from '../../components/Title';
 import List from '../../components/List';
 import Comment from '../../components/Comment';
+import Group from '../../components/Group';
+import ConfirmModal from '../../components/ConfirmModal';
 
 const PostBody = (props) => {
   const { text, author, timestamp, voteScore, onAddComment } = props;
@@ -46,26 +49,33 @@ PostBody.propTypes = {
   author: PropTypes.string.isRequired,
   timestamp: PropTypes.number.isRequired,
   voteScore: PropTypes.number,
-  onAddComment: PropTypes.func.isRequired,
+  onAddComment: PropTypes.func,
 };
 
 PostBody.defaultProps = {
-  text: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  timestamp: PropTypes.number.isRequired,
+  text: null,
+  author: null,
+  timestamp: 0,
   voteScore: '0 points',
-  onAddComment: PropTypes.func.isRequired,
+  onAddComment: null,
 };
 
 class PostDetails extends Component {
 
   state = {
     showCommentForm: false,
+    showDeleteModal: false,
   }
 
   toggleCommentForm = () => {
     this.setState(state => ({
       showCommentForm: !state.showCommentForm,
+    }));
+  }
+
+  toggleConfirmDeleteModal = () => {
+    this.setState(state => ({
+      showDeleteModal: !state.showDeleteModal
     }));
   }
 
@@ -76,18 +86,35 @@ class PostDetails extends Component {
     this.commentInput.value = null;
   }
 
+  onConfirmDelete = () => {
+    this.props.onDelete(this.props.post.id);
+    this.toggleConfirmDeleteModal();
+    this.props.onGoBack();
+  }
+
   render() {
-    const { comments, post, onGoBack } = this.props;
-    const { showCommentForm } = this.state;
+    const { comments, post, onGoBack, onDelete } = this.props;
+    const { showCommentForm, showDeleteModal } = this.state;
 
     return (
       <div>
         <Header>
           <BackButton onClick={onGoBack} />
           <Title small>{post.title}</Title>
-          <Link to={{ pathname: '/posts/edit', state: { post } }}>
-            <EditIcon size={30} color={buttonPrimary} />
-          </Link>
+          <Group>
+            <DeleteIcon
+              className='header-icon'
+              size={30}
+              color={buttonPrimary}
+              onClick={this.toggleConfirmDeleteModal}
+            />
+            <Link to={{ pathname: '/posts/edit', state: { post } }}>
+              <EditIcon
+                size={30}
+                color={buttonPrimary}
+              />
+            </Link>
+          </Group>
         </Header>
         <Content>
           <PostBody
@@ -128,6 +155,14 @@ class PostDetails extends Component {
             {comment => <Comment data={comment} />}
           </List>
         </Content>
+        {showDeleteModal && (
+          <ConfirmModal
+            isOpen={showDeleteModal}
+            onRequestClose={this.toggleConfirmDeleteModal}
+            message={`You are about to delete Post with id: ${post.id}`}
+            onConfirm={this.onConfirmDelete}
+          />
+        )}
       </div>
     );
   }
@@ -155,6 +190,7 @@ PostDetails.propTypes = {
   }),
   onGoBack: PropTypes.func.isRequired,
   onPostComment: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 PostDetails.defatultProps = {
@@ -163,6 +199,7 @@ PostDetails.defatultProps = {
   post: {},
   onGoBack: () => {},
   onPostComment: () => {},
+  onDelete: () => {},
 };
 
 export default PostDetails;

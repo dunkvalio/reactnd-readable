@@ -50,13 +50,16 @@ class Main extends Component {
           <CategoryList data={categories} />
           <Group>
             <SortIcon
+              className="header-icon"
               onClick={this.openSortModal}
               size={30}
               color={buttonPrimary}
-              className="header-icon"
             />
             <Link to="/posts/edit">
-              <AddIcon size={30} color={buttonPrimary} />
+              <AddIcon
+                size={30}
+                color={buttonPrimary}
+              />
             </Link>
           </Group>
         </Header>

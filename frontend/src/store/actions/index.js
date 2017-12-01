@@ -23,8 +23,6 @@ export const EDIT_POST_ERROR = 'EDIT_POST_ERROR';
 
 export const SORT_POSTS = 'SORT_POSTS';
 
-export const POST_VOTE_POST_ERROR = 'POST_VOTE_POST_ERROR';
-
 export function fetchCategories() {
   return dispatch => {
     api.getCategories()
@@ -97,7 +95,12 @@ export function sortPosts(sortBy) {
 
 export function postPostVote(postId, vote) {
   return dispatch => {
-    api.postPostVote(postId, vote)
-      .catch(() => dispatch({ type: POST_VOTE_POST_ERROR, postId }));
+    api.postPostVote(postId, vote);
+  }
+}
+
+export function deletePost(id) {
+  return dispatch => {
+    api.deletePost(id);
   }
 }

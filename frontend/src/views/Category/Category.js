@@ -51,7 +51,10 @@ class CategoryView extends Component {
               onClick={this.openSortModal}
             />
             <Link to="/posts/edit">
-              <AddIcon size={30} color={buttonPrimary} />
+              <AddIcon
+                size={30}
+                color={buttonPrimary}
+              />
             </Link>
           </Group>
         </Header>
