@@ -1,8 +1,4 @@
-# MyReads Project
-
-This is the final assessment project for Udacity's React and Redux course.
-
-Readable is an anonymous content and comment application. Users can post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
+# Readable React App
 
 ## Dependencies
 [React Router v4](https://github.com/ReactTraining/react-router)
@@ -25,37 +21,15 @@ Readable is an anonymous content and comment application. Users can post content
 
 ## Setup
 
-Steps need to run the project:
-1. Clone or download the source
+Steps need to run the frontend project:
 
-### Frontend
-2. Navigate to frontend folder
-```
-$ cd frontend
-```
-3. Install all project dependencies:
+1. Install all project dependencies:
 ```
 $ npm install
 ```
-4. Start the development server:
+2. Start the development server:
 ```
 $ npm start
-```
-
-### Server
-
-Steps need to run the project:
-5. Navigate to frontend folder
-```
-$ cd ../api-server
-```
-6. Install all project dependencies:
-```
-$ npm install
-```
-7. Start the development server:
-```
-$ node server
 ```
 
 ## Create React App
