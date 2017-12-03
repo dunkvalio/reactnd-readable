@@ -1,27 +1,17 @@
-# Readable API Server
+# Readable
 
 This is the final assessment project for Udacity's React and Redux course.
 
-Readable is an anonymous content and comment application. Users can post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
+This repository was create using the the [Starter Project](https://github.com/udacity/reactnd-project-readable-starter) provided by Udacity and includes the code for the backend API Server and the client React App.
 
-This repository was create using the the [Starter Project](https://github.com/udacity/reactnd-project-readable-starter) provided by Udacity and includes the code for the backend API Server and the frontend React App.
+Readable is an anonymous content and comment application where users can post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
 
-## Start Developing
 
-To get started developing right away:
+## Setup
 
-* Install and start the API server
-    - `cd api-server`
-    - `npm install`
-    - `node server`
-* Install and start Front-end App
-    - `cd frontend`
-    - `npm install`
-    - `npm start`
+## Back-end API Server
 
-## API Server
-
-Information about the API server and how to use it can be found in its [README file](api-server/README.md).
+Information about the back-end API server and how to use it can be found in its [README file](api-server/README.md).
 
 ## Front-end
 

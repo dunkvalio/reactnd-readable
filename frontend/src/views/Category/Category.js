@@ -35,7 +35,7 @@ class CategoryView extends Component {
   };
 
   render() {
-    const { category, posts, onGoBack, sortOptions, sortBy, onVote } = this.props;
+    const { category, posts, onGoBack, sortOptions, sortBy, onVote, onDelete } = this.props;
     const { showModal } = this.state;
 
     return (
@@ -61,7 +61,7 @@ class CategoryView extends Component {
         <Content>
           <List className="list" data={posts} getKey={item => item.id}>
             {(item, index) => (
-              <Post pos={++index} item={item} onVote={onVote}/>
+              <Post pos={++index} item={item} onVote={onVote} onDelete={onDelete}/>
             )}
           </List>
         </Content>

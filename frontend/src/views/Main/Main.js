@@ -15,32 +15,25 @@ import Post from '../../components/Post';
 import SortModal from '../../components/SortModal';
 
 class Main extends Component {
-
   state = {
     showModal: false,
-  }
+  };
 
   openSortModal = () => {
     this.setState({ showModal: true });
-  }
+  };
 
   closeSortModal = () => {
     this.setState({ showModal: false });
-  }
+  };
 
-  onSortBy = (value) => {
+  onSortBy = value => {
     this.props.onSort(value);
     this.closeSortModal();
-  }
+  };
 
   render() {
-    const {
-      categories,
-      posts,
-      sortBy,
-      sortOptions,
-      onVote,
-    } = this.props;
+    const { categories, posts, sortBy, sortOptions, onVote, onDelete } = this.props;
     const { showModal } = this.state;
 
     return (
@@ -56,16 +49,15 @@ class Main extends Component {
               color={buttonPrimary}
             />
             <Link to="/posts/edit">
-              <AddIcon
-                size={30}
-                color={buttonPrimary}
-              />
+              <AddIcon size={30} color={buttonPrimary} />
             </Link>
           </Group>
         </Header>
         <Content>
           <List className="list" data={posts} getKey={item => item.id}>
-            {(item, index) => <Post pos={++index} onVote={onVote} item={item} />}
+            {(item, index) => (
+              <Post pos={++index} onVote={onVote} item={item} onDelete={onDelete} />
+            )}
           </List>
         </Content>
         {showModal && (

@@ -44,7 +44,7 @@ class Comment extends Component {
   }
 
   render() {
-    const { data, onVote, onDelete, onEdit } = this.props;
+    const { data, onVote, onDelete } = this.props;
     const { editCommentValue, showDeleteModal, showEditModal } = this.state;
 
     return (
