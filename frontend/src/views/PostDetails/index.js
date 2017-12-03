@@ -4,6 +4,7 @@ import * as postActions from '../../store/actions/posts';
 import * as commentActions from '../../store/actions/comments';
 
 import PostDetails from './PostDetails';
+import ErrorPage from '../../components/ErrorPage';
 
 class PostDetailsContainer extends Component {
   componentDidMount() {
@@ -49,27 +50,26 @@ class PostDetailsContainer extends Component {
 
   render() {
     const { postDetails, comments, history } = this.props;
-
     return (
-      <PostDetails
-        post={postDetails}
-        comments={comments}
-        onGoBack={() => history.goBack()}
-        onPostComment={this.onPostComment}
-        onDelete={this.onDeletePost}
-        onVote={this.onVote}
-        onCommentVote={this.onCommentVote}
-        onDeleteComment={this.onDeleteComment}
-        onEditComment={this.onEditComment}
-      />
+      <div>
+        {postDetails.id
+          ? <PostDetails
+              post={postDetails}
+              comments={comments}
+              onGoBack={() => history.goBack()}
+              onPostComment={this.onPostComment}
+              onDelete={this.onDeletePost}
+              onVote={this.onVote}
+              onCommentVote={this.onCommentVote}
+              onDeleteComment={this.onDeleteComment}
+              onEditComment={this.onEditComment}
+            />
+          : <ErrorPage message='Post not Found!' />
+        }
+      </div>
     );
   }
 }
-
-PostDetailsContainer.defaultProps = {
-  postDetails: {},
-  comments: [],
-};
 
 const mapStateToProps = ({ postDetails, comments }) => {
   return { postDetails, comments };
