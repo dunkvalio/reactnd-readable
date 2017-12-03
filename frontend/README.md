@@ -1,24 +1,5 @@
 # Readable React App
 
-## Dependencies
-[React Router v4](https://github.com/ReactTraining/react-router)
-
-[Prop Types](https://github.com/facebook/prop-types)
-
-[Redux](https://github.com/reactjs/redux)
-
-[React Redux](https://github.com/reactjs/react-redux)
-
-[Redux Thunk](https://github.com/gaearon/redux-thunk)
-
-[React Icons](https://github.com/gorangajic/react-icons)
-
-[React Modal](https://github.com/reactjs/react-modal)
-
-[axios](https://github.com/axios/axios)
-
-[moment](https://github.com/moment/moment)
-
 ## Setup
 
 Steps need to run the frontend project:

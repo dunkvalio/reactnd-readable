@@ -6,6 +6,24 @@ This repository was create using the the [Starter Project](https://github.com/ud
 
 Readable is an anonymous content and comment application where users can post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
 
+## Dependencies
+[React Router v4](https://github.com/ReactTraining/react-router)
+
+[Prop Types](https://github.com/facebook/prop-types)
+
+[Redux](https://github.com/reactjs/redux)
+
+[React Redux](https://github.com/reactjs/react-redux)
+
+[Redux Thunk](https://github.com/gaearon/redux-thunk)
+
+[React Icons](https://github.com/gorangajic/react-icons)
+
+[React Modal](https://github.com/reactjs/react-modal)
+
+[axios](https://github.com/axios/axios)
+
+[moment](https://github.com/moment/moment)
 
 ## Setup
 
